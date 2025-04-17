@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main_navigation"
+    app:startDestination="@+id/homeContainerFragment">
+
+    <fragment
+        android:id="@+id/homeContainerFragment"
+        android:name="com.example.demonav.ui.main.home.HomeContainerFragment"
+        android:label="@string/title_home_container"
+        tools:layout="@layout/home_container_fr">
+        <action
+            android:id="@+id/homeToSetting"
+            app:destination="@id/settingFragment" />
+        <action
+            android:id="@+id/homeToDetail"
+            app:destination="@id/detailFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/settingFragment"
+        android:name="com.example.demonav.ui.main.setting.SettingFragment"
+        android:label="@string/title_setting"
+        tools:layout="@layout/setting_fr" />
+
+    <fragment
+        android:id="@+id/detailFragment"
+        android:name="com.example.demonav.ui.main.detail.DetailFragment"
+        android:label="@string/title_detail"
+        tools:layout="@layout/detail_fr">
+
+        <argument
+            android:name="args"
+            app:argType="com.example.demonav.ui.navigate.args.DetailArgs"
+            app:nullable="true" />
+        <action
+            android:id="@+id/detailToUpdate"
+            app:destination="@id/updateFragment" />
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/updateFragment"
+        android:name="com.example.demonav.ui.main.update.UpdateFragment"
+        android:label="@string/title_update"
+        tools:layout="@layout/update_fr">
+
+        <argument
+            android:name="args"
+            app:argType="com.example.demonav.ui.navigate.args.UpdateArgs"
+            app:nullable="true" />
+
+        <action
+            android:id="@+id/updatePopToHome"
+            app:popUpTo="@id/homeContainerFragment" />
+
+    </fragment>
+</navigation>
